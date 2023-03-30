@@ -1,0 +1,41 @@
+/* Center the form on the page */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Add some padding around the form */
+  mat-card {
+    padding: 24px;
+  }
+  
+  /* Style the form title */
+  mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  /* Style the form fields */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* Style the login button */
+  button[type="submit"]:first-child {
+    margin-right: 16px;
+  }
+  
+  /* Add some margin between the buttons */
+  mat-card-actions {
+    margin-top: 24px;
+  }
+  
+    #grad1 {
+    height: 200px;
+    /* background-color: red; */
+    background-image: linear-gradient(to right,#d3959b ,#bfe6ba);
+  }
