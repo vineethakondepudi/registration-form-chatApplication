@@ -1,1 +1,62 @@
-<p>chat-with-contact works!</p>
+<!--Top navbar -->
+<div class="topnav">
+  <div class="topnav-left"></div>
+  <div class="profile-icon">
+    <label for="profile-image-upload">
+      <img src="assets/dp.jpg" alt="Profile Image" />
+    </label>
+    <input type="file" id="profile-image-upload" style="display: none" />
+  </div>
+  <div class="user-info">
+    <h3 class="user-name">{{ loginEmail }}</h3>
+  </div>
+  <div>
+    <a mat-icon-button (click)="showCard = !showCard">
+      <mat-icon>exit_to_app</mat-icon>
+    </a>
+  </div>
+  <mat-card *ngIf="showCard">
+    <mat-card-content class="logOutCard"
+      ><a href="/login">Logout</a></mat-card-content
+    >
+  </mat-card>
+</div>
+
+<nav class="sidenav" style="width: 25%">
+  <input
+    class="searchBar"
+    pInputText
+    type="text"
+    placeholder="Search Contacts..."
+    [(ngModel)]="searchText"
+    (input)="onSearch()"
+  />
+  <mat-card *ngFor="let name of filteredUsers">
+    <mat-card-content class="selectButton" (click)="onSelect(name)">{{
+      name
+    }}</mat-card-content>
+  </mat-card>
+  <mat-card *ngFor="let selectname of savedUsers.sort(); let i = index">
+    <mat-card-content
+      class="selectedButton"
+      (click)="selectedNamess(selectname)"
+    >
+      <i class="pi pi-angle-left" (click)="leftAngleIcon(i)"></i
+      >{{ selectname }}
+    </mat-card-content>
+    <mat-card-content class="logOutCard" *ngIf="showDelete[i]">
+      <i
+        class="fa fa-trash"
+        aria-hidden="true"
+        (click)="onDelete(selectname)"
+      ></i>
+    </mat-card-content>
+  </mat-card>
+</nav>
+
+<div class="defaultMsgCard">
+  <h1 class="chatMessage1">lets chat...</h1>
+  <h1 class="chatMessage2">say HAI</h1>
+  <img class="defaultChatImg" alt="" />
+</div>
+<router-outlet></router-outlet>

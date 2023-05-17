@@ -1,33 +1,67 @@
-<form [formGroup]="registerForm" >
-    <div fxLayout="column" fxLayoutAlign="center center">
-      <div fxFlex="100%">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Full Name</mat-label>
-          <input matInput formControlName="name" name="name" required pattern="/\s/">
-        </mat-form-field>
-      </div>
-      <div fxFlex="100%">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" name="email" required type="email">
-        </mat-form-field>
-      </div>
-      <div fxFlex="100%">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Password</mat-label>
-          <input matInput formControlName="password" name="password" type="password" required pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$">
-          <mat-error *ngIf="registerForm.value.password">Password must be a combination of lower-case, upper-case, numbers and at least 9 characters long</mat-error>
-        </mat-form-field>
-      </div>
-      <div fxFlex="100%">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Confirm Password</mat-label>
-          <input matInput formControlName="confirmPassword" name="confirmPassword" type="password" required pattern="{{registerForm.value.password}}">
-          <!-- <mat-error *ngIf="registerForm.value.verifyPassword">Passwords do not match.</mat-error> -->
-        </mat-form-field>
-      </div>
-      <div fxFlex="100%">
-          <button mat-stroked-button color="primary" type="submit" [disabled]="!registerForm.valid">Register<mat-icon>chevron_right</mat-icon></button>
+<div id="chat-applicaton">
+  <div class="user-profile">
+    <div class="profile-icon">
+      <input type="file" id="file-input" accept="image/*" style="display: none;">
+      <img id="profile-image" src="https://i.stack.imgur.com/l60Hf.png" alt="Profile Image">
+      <!-- <img id="profile-image" src="assets/dp.jpg" alt="Profile Image"> -->
+    </div>
+    <div class="user-info">
+      <h3 class="user-name">{{ selectedName }}</h3>
+    </div>
+  </div>
+  <div id="chat-window" #chatWindow>
+    <div *ngFor="let group of messages">
+      <div class="date-header">{{ group.dateString }}</div>
+      <div *ngFor="let message of getMessage" class="message" [ngClass]="{
+        sender: (message.receiver == this.selectedName && message.sender== this.loggedInUserId),
+        receiver: (message.receiver == this.loggedInUserId && message.sender== this.selectedName),
+        none: !(message.receiver == this.selectedName && message.sender== this.loggedInUserId) && !(message.receiver == this.loggedInUserId && message.sender== this.selectedName)}"
+        (mouseenter)="message.isHovered = true"
+        (mouseleave)="message.isHovered = false">
+        <p>{{ message.sender }}</p>
+        <p>{{ message.message }}</p> 
+        <span>{{ message.timestamp }}</span>
+        <i class="pi pi-angle-down icon" *ngIf="message.isHovered" (click)="toggleCardVisibility(message)"></i>
+<mat-card *ngIf="message.isCardVisible">
+  <mat-card-content class="defaultMsgCard">Delete
+  </mat-card-content>
+  </mat-card>
       </div>
     </div>
-</form>
+  </div>
+    <div class="input-group">
+      <span class="emoji" (click)="isEmojiPickerVisible = !isEmojiPickerVisible"
+        >&#9786;</span
+      >
+      <div>
+        <div class="file-upload">
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" />
+    <label for="fileInput"><i class="bi bi-paperclip"></i></label>
+  </div>
+      </div>
+      <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="sendMessages"
+      (keyup.Enter)="sendMessage()"
+      (input)="messageTyping()"
+      placeholder="Message"
+      autocomplete="off"
+    />
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <span class="paper-plane-icon" (click)="sendMessage()">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </span>
+      
+      <br />
+
+      <emoji-mart
+        class="emoji-mart"
+        *ngIf="isEmojiPickerVisible"
+        (emojiSelect)="addEmoji($event)"
+        title="Choose your emoji"
+      ></emoji-mart>
+    </div>
+  </div>
+
+

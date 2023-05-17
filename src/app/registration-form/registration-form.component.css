@@ -1,10 +1,23 @@
 form {
     max-width: 500px;
     margin: 0 auto;
+  } 
+
+  mat-card {
+    background-image: linear-gradient(to right,#b1a5a5 ,#9ca55a);
+    color:#000000;
+    max-width: 500px;
+    width:450px;
+    height:480px;
+    margin: auto;
+    text-align: center;
+    border-radius: 30px;
   }
-  
+
   mat-card-title {
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
   
   mat-form-field {
@@ -12,7 +25,22 @@ form {
   }
   
   #grad1 {
-    height: 200px;
-    /* background-color: red; */
-    background-image: linear-gradient(to right,#d3959b ,#bfe6ba);
+    background-image: url('src\assets\login1.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  opacity: 1.9;
   }
+
+  a {
+    color: #1976d2;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+ 

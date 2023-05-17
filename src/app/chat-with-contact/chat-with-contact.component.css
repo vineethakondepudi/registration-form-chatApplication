@@ -1,0 +1,160 @@
+/* Set default styles */
+
+.logOutCard {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.logOutCard a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  text-align: start;
+}
+
+.topnav {
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  padding: 10px;
+}
+
+.topnav-left {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  margin-right: auto;
+}
+
+/*Left  Side nav bar*/
+.chatMessage1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  position: absolute;
+  top: 45%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+}
+
+.chatMessage2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  top: 53%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+}
+
+.defaultChatImg {
+  background-image: url("src\assets\chat.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 120px;
+  position: fixed;
+  top: 30%;
+  left: 60%;
+  width: 150px;
+}
+
+.defaultMsgCard {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  position: fixed;
+  right: 0;
+  width: 74.5%;
+  background-color: #4a6d90;
+  border: 1px solid rgb(245, 241, 241);
+  z-index: 9999;
+}
+
+.searchBar {
+  width: 100%;
+  height: 40px;
+}
+.selectButton {
+  background-color: white;
+  color: black;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.selectButton:hover {
+  background-color: rgb(54, 49, 49);
+}
+
+.selectedButton {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.selectedButton:hover {
+  background-color: rgb(54, 49, 49);
+}
+
+.selectedButton i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: white;
+}
+
+.sidenav {
+  width: 40vw;
+  float: left;
+  height: 90vh;
+  position: fixed;
+  background-color: black;
+  overflow-x: hidden;
+  border-radius: 7px;
+}
+
+
+.profile-icon img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.user-name {
+  margin: 0;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-container > .fa-trash {
+  margin-left: 10px;
+}
+.dialog
+{
+  background-color:pink;
+}

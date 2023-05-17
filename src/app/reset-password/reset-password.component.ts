@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatApplicationService } from '../chat-application.service';
 
@@ -11,30 +11,36 @@ import { ChatApplicationService } from '../chat-application.service';
 })
 export class ResetPasswordComponent {
   resetRegister:FormGroup;
+  hidePassword = true;
 
-  constructor(private fb: FormBuilder,private route:Router,private chatService:ChatApplicationService) {
-    this.resetRegister = this.fb.group({
-      Email: ['', Validators.required],
-      PassWord: ['', Validators.required]
+  constructor(private fb: FormBuilder,private router:Router,private chatService:ChatApplicationService) {
+    this.resetRegister = new FormGroup({
+      Email: new FormControl('', [Validators.required, Validators.email]),
+          PassWord: new FormControl('', [Validators.required])
     });
   }
 
   reset(){
-    
-    
     this.chatService.reset(this.resetRegister.value).subscribe(
       (result:any)=>{        
         console.log(result);
-        if(result.message=="Don't allow"){
-         
-      }
-   else{
-    this.route.navigate(['login']);
-    
-        
-      }
-  })
+                var a = Object.values(result)
+                alert(a);
+                if(result.message=="Password Updated Sucessfully"){ 
+                  this.router.navigate(['login'])      
+                }
+                else{
+                  const errorMessage = "Invalid email or password. Please register.";
+                }
+              }, 
+  )}
     
     
   }
-}
+
+
+
+
+
+
+

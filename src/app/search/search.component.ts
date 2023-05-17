@@ -18,27 +18,31 @@ export class SearchComponent {
     FirstName:new FormControl('', [Validators.required])
   })
 
+  ngOnInit(): void {
+    this.chatService.search().subscribe((result)=>{
+    this.data=result
+    
+    })
+  }
+
   search() {
+  
     this.chatService.search().subscribe(
       (result:any) => {
         console.log(result,"-----")
-        // console.log(result[0]);
-     this.data=result
       
-        
-      //  var data = result[0];
-
-       
+     this.data=result
+     const search=JSON.stringify(localStorage.setItem('c',result))
        var data1 = this.SearchBar.value;
        var data2 = Object.values(data1)
-      //  console.log(data);
+    
        var data3 = data2.toString();
               
 console.log(this.data,"fetching data");
 
               if (this.data.includes(data3)) {
           // navigate to another page if result[2] matches firstName
-          this.router.navigate(['contact']);
+          // this.router.navigate(['contact']);
           console.log("success");
           
         }

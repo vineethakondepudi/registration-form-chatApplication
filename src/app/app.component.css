@@ -1,0 +1,10 @@
+.defaultMsgCard {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    position: fixed;
+    left: 60px;
+    width: 200px;
+    background-color: white;
+    border: 1px solid rgb(248, 233, 233);
+  }

@@ -1,81 +1,17 @@
-/* .btn {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: 160px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-.centered1 {
-  font-size: 50px;
-  color: rgb(100, 81, 81);
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-2%, -50%);
-  text-shadow: 3px 2px #101010
-}
-.centered {
-  font-size: 30px;
-  color: rgb(67, 52, 52);
-  position: absolute;
-  top: 40%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-}
-.btn:hover {
-  background-color: #3e8e41;
-}
-.btn1 {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.btn1:hover {
-  background-color: #3e8e41;
-}
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-  
-}
-
-.container img {
-  opacity: 0.5;
-}
-
-.container button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
-.container img {
-  opacity: 0.6;
-}
-
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
+#grad1 {
+  background-image: url('src\assets\laptop.png');
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+opacity: 1.9;
+font-family: Comic Sans MS;
 }
 
 .centered1 {
+  font-family:'bradley';
   font-size: 50px;
   color: rgb(100, 81, 81);
   text-shadow: 3px 2px #101010;
@@ -98,7 +34,7 @@
 .btn {
   background-color: white;
   color: black;
-  border: 2px solid #4CAF50;
+  border: 2px solid #636363;
   padding: 10px 20px;
   border-radius: 25px;
   font-size: 1.2em;
@@ -109,9 +45,9 @@
 }
 
 .btn1 {
-  background-color: #4CAF50;
+  background-color: #636363;
   color: white;
-  border: 2px solid #4CAF50;
+  border: 2px solid #636363;
   padding: 10px 20px;
   border-radius: 25px;
   font-size: 1.2em;

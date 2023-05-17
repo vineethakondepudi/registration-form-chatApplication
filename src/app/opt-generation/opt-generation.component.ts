@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,13 +15,10 @@ data:any;
 Email: any;
 
   constructor(private fb: FormBuilder,private route:Router) {
-    this.OTPGeneration = this.fb.group({
-      Email: ['', Validators.required]
+    this.OTPGeneration = new FormGroup({
+      Email: new FormControl('', [Validators.required, Validators.email])
     });
   }
- 
-
-
   otp(){
     var b=this.OTPGeneration.value;
     var data= localStorage.getItem("a"); 
@@ -32,7 +29,7 @@ if(d==data){
   this.route.navigate(['resetPassword'])
 }
    else{
-    console.log("error");
+   alert("Please Check Your OTP")
     
    } 
    

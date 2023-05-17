@@ -12,7 +12,7 @@ import { OptGenerationComponent } from './opt-generation/opt-generation.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ChatApplicationComponent } from './chat-application/chat-application.component';
-import{HttpClientModule}from '@angular/common/http';
+import {HttpClientModule}from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -33,9 +33,24 @@ import { ChatListComponent } from './component/chat-list/chat-list.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ChatWithContactComponent } from './chat-with-contact/chat-with-contact.component'; // Import the FormsModule here
-
+import { ChatWithContactComponent } from './chat-with-contact/chat-with-contact.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { PickerModule }  from '@ctrl/ngx-emoji-mart'
+import { InputTextModule } from 'primeng/inputtext';
+import { TestComponent } from './test/test.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CardModule } from 'primeng/card';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { MsgTimePipe } from './msg-time.pipe';
+import { ListboxModule } from 'primeng/listbox';
+import { AccordionModule } from 'primeng/accordion';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+   
+  
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,8 +68,9 @@ import { ChatWithContactComponent } from './chat-with-contact/chat-with-contact.
     MessageComponent,
     ChatListComponent,
     SearchComponent,
-    ContactsComponent,
-    ChatWithContactComponent
+    ChatWithContactComponent,
+    TestComponent,
+    MsgTimePipe,
   ],
   imports: [
     BrowserModule,
@@ -74,9 +90,22 @@ import { ChatWithContactComponent } from './chat-with-contact/chat-with-contact.
     MatSnackBarModule,
     MatToolbarModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    PickerModule,
+    InputTextModule,
+    MatPaginatorModule,
+    MatGridListModule,
+    MatDialogModule,
+    CardModule,
+    SpeedDialModule,
+    ListboxModule,
+    AccordionModule,
+    ConfirmDialogModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [ChatWithContactComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

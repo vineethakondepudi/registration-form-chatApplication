@@ -1,7 +1,7 @@
 <div id="grad1" style="display: flex; justify-content: center; align-items: center; height: 100vh; ">
 <form [formGroup]="registrationForm" style="max-width: 500px; margin: 0 auto;">
     <mat-card>
-      <mat-card-title style="text-align: center;">REGISTRATION FORM</mat-card-title>
+      <mat-card-title>REGISTRATION FORM</mat-card-title>
       <mat-card-content>
         <mat-form-field>
           <mat-icon matPrefix>person</mat-icon>
@@ -26,15 +26,19 @@
         <mat-form-field>
           <mat-label>Password</mat-label>
           <mat-icon matPrefix>password</mat-icon>
-          <input matInput type="password" id="PassWord" formControlName="PassWord" [type]="hidePassword ? 'password' : 'text'" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" style="width: 100%;" />
+          <input matInput type="password" id="PassWord" formControlName="PassWord" [type]="hidePassword ? 'password' : 'text'"  style="width: 100%;" />
           <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </mat-form-field>
       </mat-card-content>
-      <mat-card-actions>
-        <p style="text-align: center; margin-bottom: 16px;">Already have an account? Please <a href="/login">Log in</a></p>
-        <div style="display: flex; justify-content: center;">
-          <button mat-raised-button color="primary" type="submit" (click)="show()">Submit</button>
-        </div> 
+      <mat-card-actions>     
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <div style="margin-left: 100px;margin-top: 30px;">
+            <button mat-raised-button color="primary" type="submit" (click)="show()">Submit</button>
+          </div>
+          <div style="margin-left: 60px;margin-top: 20px;">
+            <p style="text-align: center; margin-bottom: 16px;">Already have an account? Please <a href="/login">Log in</a></p>
+          </div>
+        </div>
         <div #messageDiv></div>
       </mat-card-actions>
     </mat-card>

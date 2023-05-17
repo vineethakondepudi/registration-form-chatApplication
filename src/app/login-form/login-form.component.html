@@ -1,42 +1,43 @@
+
 <div id="grad1" style="display: flex; justify-content: center; align-items: center; height: 100vh; ">
-<form [formGroup]="loginForm">
-  <mat-card>
-    <mat-card-title>Login Form</mat-card-title>
-    <mat-card-content>
-      <mat-form-field>
-        <mat-label>User Email</mat-label>
-        <mat-icon matPrefix>email</mat-icon>
-        <input matInput type="email" id="Email" formControlName="Email" style="width: 100%;" />
-        <mat-error *ngIf="!loginForm.controls['Email'].pristine && loginForm.controls['Email'].errors && loginForm.controls['Email'].errors['required']">
-          Email is required
-        </mat-error>
-        <mat-error *ngIf="!loginForm.controls['Email'].pristine && loginForm.controls['Email'].errors && loginForm.controls['Email'].errors['email']">
-          Please enter a valid email address
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <mat-icon matPrefix>password</mat-icon>
-        <input matInput type="password" id="PassWord" formControlName="PassWord" [type]="hidePassword ? 'password' : 'text'" style="width: 100%;" />
-        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-        <mat-error *ngIf="!loginForm.controls['PassWord'].pristine && loginForm.controls['PassWord'].errors && loginForm.controls['PassWord'].errors['required'] ">
-          Password is required
-        </mat-error>
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-      <p style="text-align: center; margin-bottom: 16px;">Don't have an account? Please <a href="/signup">Sign up</a></p>
-      <div style="display: flex; justify-content: center;">
-        <button mat-raised-button color="primary" type="submit" (click)="show()">Login</button>
-        <div style="width: 20px;"></div> 
-        <button mat-flat-button color="warn" type="submit" (click)="forgot()">Forgot Password</button>
-      </div>
-      <div #messageDiv></div>
-    </mat-card-actions>
-  </mat-card>
-</form>
-</div>
-  <router-outlet></router-outlet> 
-  
-  
-  
+  <form [formGroup]="loginForm">
+    <mat-card>
+      <mat-card-title>Login Form</mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>User Email</mat-label>
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput type="email" id="Email" formControlName="Email" style="width: 100%;" />
+          <mat-error *ngIf="!loginForm.controls['Email'].pristine && loginForm.controls['Email'].errors && loginForm.controls['Email'].errors['required']">
+            Please fill out all required fields
+          </mat-error>
+          <mat-error *ngIf="!loginForm.controls['Email'].pristine && loginForm.controls['Email'].errors && loginForm.controls['Email'].errors['email']">
+            Please fill out all required fields
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>password</mat-icon>
+          <input matInput type="password" id="PassWord" formControlName="PassWord" [type]="hidePassword ? 'password' : 'text'" style="width: 100%;" />
+          <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          <mat-error *ngIf="!loginForm.controls['PassWord'].pristine && loginForm.controls['PassWord'].errors && loginForm.controls['PassWord'].errors['required'] ">
+            Please fill out all required fields
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <div style="margin: 10px; margin-top: 40px;">
+            <button mat-raised-button color="primary" type="submit" (click)="show()">Login</button>
+          </div>
+          <div style="margin-top: 20px;">
+            <p style="text-align: center; margin-bottom: 16px;">Don't have an account? Please <a href="/register">Sign up</a></p>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="/forgot">Forgot Password?</a>
+          </div>
+        </div>
+        </mat-card-actions>
+    </mat-card>
+  </form>
+  </div>
